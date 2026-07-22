@@ -1,0 +1,24 @@
+.active-link{
+    color:#60a5fa !important;
+    font-weight:600;
+    position:relative;
+}
+
+.active-link::after{
+    content:'';
+    position:absolute;
+    bottom:-5px;
+    left:0;
+    width:100%;
+    height:2px;
+    background:transparent;
+    transition:.3s ease;
+}
+
+.navbar-scrolled{
+    background:rgba(15,23,42,.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
