@@ -1,21 +1,28 @@
-:root{
-    --bg:#0f172a;
-    --card:#1e293b;
-    --primary:#3b82f6;
-    --text:#f8fafc;
+.modal-content{
+    background:#0f172a;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
 }
 
-body{
-    font-family:'Poppins',sans-serif;
-    background:var(--bg);
-    color:var(--text);
+.modal-body img{
+    border-radius:15px;
 }
 
-.navbar{
-    background:#111827;
+.modal-header,
+.modal-footer{
+    border-color:rgba(255,255,255,.08);
 }
 
-.footer{
-    padding:30px 0;
-    background:#111827;
+.project-meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:18px 0;
+
+    color:#94a3b8;
+
+    font-size:.9rem;
+
 }

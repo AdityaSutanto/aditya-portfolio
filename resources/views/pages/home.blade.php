@@ -42,6 +42,15 @@
 
                     </a>
 
+                    <a href="{{ asset('cv/Aditya-Sutanto-CV.pdf') }}"
+                        class="btn btn-primary"
+                        download>
+
+                        <i class="fa-solid fa-download me-2"></i>
+                        Download CV
+
+                    </a>
+
                     <a href="mailto:aditsusanto2002@gmail.com"
                        class="btn btn-outline-light">
 
@@ -74,10 +83,11 @@
 
             <div class="col-lg-5 text-center">
 
-                <div class="profile-placeholder">
-
-                    AS
-
+                <div class="hero-image">
+                    <img
+                    src="{{ asset('images/profile/aditya.jpg') }}"
+                    alt="Aditya Sutanto"
+                    >
                 </div>
 
             </div>
@@ -250,6 +260,10 @@
 
         </div>
 
+        @php
+            $projects = config('projects');
+        @endphp
+
         <div class="row g-4">
 
             @foreach($projects as $project)
@@ -258,27 +272,18 @@
 
                 <div class="project-card" data-aos="fade-up">
 
-                    <img
-                        src="{{ asset($project->image) }}"
-                        alt="{{ $project->title }}"
-                        class="project-image"
-                    >
-
                     <div class="project-body">
 
-                        <h4>
-                            {{ $project->title}}
-                        </h4>
+                        <h4>{{ $project['title'] }}</h4>
 
-                        <p>
-                            {{ $project->description }}
-                        </p>
+                        <p>{{ $project['description'] }}</p>
 
                         <div class="project-tech">
 
-                            @foreach(explode(',', $project->tech) as $tech)
+                            @foreach($project['tech'] as $tech)
+
                                 <span class="tech-badge">
-                                    {{ $tech }}
+                                    {{ trim($tech) }}
                                 </span>
 
                             @endforeach
@@ -287,12 +292,148 @@
 
                         <div class="project-buttons">
 
+                            <button
+                                class="btn btn-outline-info btn-sm"
+                                data-bs-toggle="modal"
+                                data-bs-target="#projectModal{{ $loop->index }}"
+                            >
+                                Detail
+                            </button>
+
                             <a
-                                href="{{ $project->github}}"
+                                href="{{ $project['github'] }}"
                                 target="_blank"
                                 class="btn btn-primary btn-sm"
                             >
                                 GitHub
+                            </a>
+
+                            <a
+                                href="{{ $project['demo'] }}"
+                                target="_blank"
+                                class="btn btn-outline-light btn-sm"
+                            >
+                                Live Demo
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            @endforeach
+
+            @foreach($projects as $project)
+
+            <div class="modal fade"
+                id="projectModal{{ $loop->index }}"
+                tabindex="-1">
+
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+
+                            <h4 class="modal-title">
+
+                                {{ $project['title'] }}
+
+                            </h4>
+
+                            <button
+                                class="btn-close btn-close-white"
+                                data-bs-dismiss="modal">
+                            </button>
+
+                        </div>
+
+                        <div class="modal-body">
+
+                            <img
+                                src="{{ asset($project['image']) }}"
+                                class="img-fluid rounded mb-4"
+                            >
+
+                            <p>
+
+                                {{ $project['description'] }}
+
+                            </p>
+
+                            <h5 class="mt-4">
+
+                                ✨ Features
+
+                            </h5>
+
+                            <ul>
+
+                                @foreach($project['features'] as $feature)
+
+                                    <li>{{ $feature }}</li>
+
+                                @endforeach
+
+                            </ul>
+
+                            <h5 class="mt-4">
+
+                                🛠 Tech Stack
+
+                            </h5>
+
+                            @foreach($project['tech'] as $tech)
+
+                                <span class="tech-badge">
+
+                                    {{ $tech }}
+
+                                </span>
+
+                            @endforeach
+
+                            <div class="project-meta">
+
+                                <span>
+
+                                    <i class="fa-solid fa-circle-check text-success"></i>
+
+                                    {{ $project['status'] }}
+
+                                </span>
+
+                                <span>
+
+                                    <i class="fa-regular fa-calendar"></i>
+
+                                    {{ $project['year'] }}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <a
+                                href="{{ $project['github'] }}"
+                                target="_blank"
+                                class="btn btn-primary"
+                            >
+                                GitHub
+                            </a>
+
+                            <a
+                                href="{{ $project['demo'] }}"
+                                target="_blank"
+                                class="btn btn-outline-light"
+                            >
+                                Live Demo
                             </a>
 
                         </div>
@@ -306,6 +447,7 @@
             @endforeach
 
         </div>
+
     </div>
 
 </section>
@@ -381,8 +523,8 @@
     </div>
 
 </section>
-<!-- CONTACT -->
 
+<!-- CONTACT -->
 <section id="contact" class="section-padding">
 
     <div class="container">
@@ -484,6 +626,30 @@
                         class="btn btn-success btn-sm"
                     >
                         Chat Now
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="contact-card">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                    <h5>Instagram</h5>
+
+                    <p>
+                        @usernamekamu
+                    </p>
+
+                    <a
+                        href="https://instagram.com/usernamekamu"
+                        target="_blank"
+                        class="btn btn-danger btn-sm"
+                    >
+                        Follow
                     </a>
 
                 </div>
