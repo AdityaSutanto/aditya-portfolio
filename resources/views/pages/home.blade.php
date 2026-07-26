@@ -171,7 +171,7 @@
             <h2>Skills</h2>
 
             <p>
-                Teknologi yang saya gunakan
+                Tools yang saya gunakan
             </p>
 
         </div>
@@ -201,16 +201,16 @@
                     'image' => 'images/skills/mysql.png'
                 ],
                 [
-                    'name' => 'GitHub',
-                    'image' => 'images/skills/github.png'
+                    'name' => 'HTML',
+                    'image' => 'images/skills/HTML.png'
                 ],
                 [
                     'name' => 'Figma',
                     'image' => 'images/skills/figma.png'
                 ],
                 [
-                    'name' => 'Node.js',
-                    'image' => 'images/skills/nodejs.png'
+                    'name' => 'CSS',
+                    'image' => 'images/skills/css.png'
                 ]
             ];
             @endphp
@@ -301,19 +301,13 @@
                             </button>
 
                             <a
-                                href="{{ $project['github'] }}"
+                                href="{{ $project['button_link'] }}"
                                 target="_blank"
                                 class="btn btn-primary btn-sm"
                             >
-                                GitHub
-                            </a>
+                                <i class="{{ $project['button_icon'] }} me-2"></i>
 
-                            <a
-                                href="{{ $project['demo'] }}"
-                                target="_blank"
-                                class="btn btn-outline-light btn-sm"
-                            >
-                                Live Demo
+                                {{ $project['button_name'] }}
                             </a>
 
                         </div>
@@ -353,10 +347,50 @@
 
                         <div class="modal-body">
 
-                            <img
-                                src="{{ asset($project['image']) }}"
-                                class="img-fluid rounded mb-4"
+                            <div
+                                id="carousel{{ $loop->index }}"
+                                class="carousel slide carousel-fade mb-4"
+                                data-bs-ride="carousel"
+                                data-bs-interval="3000"
                             >
+
+                                <!-- Indicator -->
+
+                                <div class="carousel-indicators">
+
+                                    @foreach($project['screenshots'] as $key => $image)
+
+                                        <button
+                                            type="button"
+                                            data-bs-target="#carousel{{ $loop->parent->index }}"
+                                            data-bs-slide-to="{{ $key }}"
+                                            class="{{ $key == 0 ? 'active' : '' }}">
+                                        </button>
+
+                                    @endforeach
+
+                                </div>
+
+                                <!-- Image -->
+
+                                <div class="carousel-inner">
+
+                                    @foreach($project['screenshots'] as $key => $image)
+
+                                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+
+                                            <img
+                                                src="{{ asset($image) }}"
+                                                class="d-block w-100 rounded"
+                                            >
+
+                                        </div>
+
+                                    @endforeach
+
+                                </div>
+
+                            </div>
 
                             <p>
 
@@ -420,20 +454,16 @@
 
                         <div class="modal-footer">
 
-                            <a
-                                href="{{ $project['github'] }}"
+                           <a
+                                href="{{ $project['button_link'] }}"
                                 target="_blank"
                                 class="btn btn-primary"
                             >
-                                GitHub
-                            </a>
 
-                            <a
-                                href="{{ $project['demo'] }}"
-                                target="_blank"
-                                class="btn btn-outline-light"
-                            >
-                                Live Demo
+                                <i class="{{ $project['button_icon'] }} me-2"></i>
+
+                                {{ $project['button_name'] }}
+
                             </a>
 
                         </div>
@@ -621,7 +651,7 @@
                     </p>
 
                     <a
-                        href="https://wa.me/628xxxxxxxxxx"
+                        href="https://wa.me/6287771758056"
                         target="_blank"
                         class="btn btn-success btn-sm"
                     >
@@ -641,94 +671,16 @@
                     <h5>Instagram</h5>
 
                     <p>
-                        @usernamekamu
+                        @orggreget
                     </p>
 
                     <a
-                        href="https://instagram.com/usernamekamu"
+                        href="https://www.instagram.com/orggreget/"
                         target="_blank"
                         class="btn btn-danger btn-sm"
                     >
                         Follow
                     </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CERTIFICATES -->
-
-<section id="certificates" class="section-padding">
-
-    <div class="container">
-
-        <div class="section-header text-center">
-
-            <h2>Certificates & Achievements</h2>
-
-            <p>
-                Pelatihan, workshop, dan pencapaian yang pernah saya ikuti
-            </p>
-
-        </div>
-
-        <div class="row g-4">
-
-            <div class="col-lg-4">
-
-                <div class="certificate-card">
-
-                    <div class="certificate-icon">
-                        🏆
-                    </div>
-
-                    <h5>Workshop AI</h5>
-
-                    <p>
-                        Workshop pemanfaatan Artificial Intelligence untuk produktivitas dan pembelajaran.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-4">
-
-                <div class="certificate-card">
-
-                    <div class="certificate-icon">
-                        🎓
-                    </div>
-
-                    <h5>Literasi Digital</h5>
-
-                    <p>
-                        Pelatihan mengenai penggunaan teknologi digital secara aman dan efektif.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-4">
-
-                <div class="certificate-card">
-
-                    <div class="certificate-icon">
-                        💻
-                    </div>
-
-                    <h5>Web Development</h5>
-
-                    <p>
-                        Pengembangan website modern menggunakan Laravel dan teknologi web lainnya.
-                    </p>
 
                 </div>
 

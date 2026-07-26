@@ -5,7 +5,12 @@ return [
     [
         'title' => 'GadgetHub',
 
-        'image' => 'images/projects/gadgethub.png',
+        'screenshots' => [
+            'images/projects/gadgethub/1.png',
+            'images/projects/gadgethub/2.png',
+            'images/projects/gadgethub/3.png',
+            'images/projects/gadgethub/4.png',
+        ],
 
         'description' => 'E-Commerce berbasis Laravel untuk penjualan gadget.',
 
@@ -25,17 +30,24 @@ return [
 
             'Search Product',
 
-            'Filter Category'
-
+            'Filter Category',
+            
+            'CRUD Product',
+            
+            'CRUD Category',
+            
+            'CRUD Supplier',
         ],
 
         'tech' => [
 
             'Laravel',
 
-            'Bootstrap',
+            'HTML',
 
-            'MySQL'
+            'CSS',
+
+            'JS'
 
         ],
 
@@ -45,28 +57,40 @@ return [
 
         'year' => '2026',
 
-        'github' => 'https://github.com/...',
+        'button_name' => 'GitHub',
 
-        'demo' => '#'
+        'button_icon' => 'fa-brands fa-github',
+
+        'button_link' => 'https://github.com/steven-zega/gadgethub-original',
     ],
 
     [
-        'title' => 'Dashboard Admin GadgetHub',
+        'title' => 'Trello Website Gadgethub',
 
-        'image' => 'images/projects/dashboard.png',
-
-        'description' => 'Dashboard admin menggunakan Node.js.',
-
-        'features' => [
-            'CRUD Product',
-            'CRUD Category',
-            'CRUD Supplier',
-            'Dashboard',
-            'Search',
-            'Filter'
+        'screenshots' => [
+            'images/projects/trello/1.png',
+            'images/projects/trello/2.png',
         ],
 
-        'tech' => ['Node.js', 'Express', 'MySQL'],
+        'description' => 'Trello board untuk manajemen proyek GadgetHub.',
+
+        'features' => [
+            'Use Case Diagram',
+            'Product Backlog',
+            'Sprint Backlog',
+            'Sprint Review',
+            'Sprint Retrospective',
+            'Organize Tasks with Trello',
+            'Collaborate with Team Members',
+        ],
+
+        'tech' => [
+
+            'Trello',
+            'Project Management',
+            'Product Backlog',
+            'Sprint Backlog',
+        ],
 
         'category' => 'Web Development',
 
@@ -74,15 +98,21 @@ return [
 
         'year' => '2026',
 
-        'github' => 'https://github.com/AdityaSutanto',
+        'button_name' => 'Trello',
 
-        'demo' => '#',
+        'button_icon' => 'fa-brands fa-trello',
+
+        'button_link' => 'https://trello.com/b/EjyzzHaf/uas-metodologi-agile-scrum',
     ],
 
     [
         'title' => 'E-Wallet UI Design',
 
-        'image' => 'images/projects/ewallet.png',
+        'screenshots' => [
+            'images/projects/ewallet/1.png',
+            'images/projects/ewallet/2.png',
+            'images/projects/ewallet/3.png',
+        ],
 
         'description' => 'Desain UI/UX aplikasi e-wallet menggunakan Figma.',
 
@@ -101,9 +131,11 @@ return [
 
         'year' => '2026',
 
-        'github' => '#',
+        'button_name' => 'Figma',
 
-        'demo' => '#',
+        'button_icon' => 'fa-brands fa-figma',
+
+        'button_link' => 'https://www.figma.com/design/JDjkurruUafNrGPiwfi3je/UAS-PWL-2?node-id=0-1&t=HDxERZ2cEgTxQn6n-1',
     ],
 
 ];
